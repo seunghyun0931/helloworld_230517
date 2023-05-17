@@ -70,8 +70,10 @@ ps가 보여주는 칼럼들의 의미
 * COMMAND : 프로세스 실행할 때 사용된 CMD
 
 아래 사진은 ps-ef를 입력했을 때 나오는 사진이다
+
 ![PS-EF](https://github.com/seunghyun0931/helloworld_230517/assets/133843257/1cc56770-2bf5-492a-ba46-a6561c7eddcb)
 
 아래 사진은 ps auxf를 입력했을 때 나오는 사진이다
+
 ![ps auxf](https://github.com/seunghyun0931/helloworld_230517/assets/133843257/1b497baf-dfca-4fa1-adac-aabf5aa8fca0)
 
