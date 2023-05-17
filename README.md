@@ -1,41 +1,77 @@
-# helloworld_230517
-helloworld_230517
+ 리눅스 명령어 top, ps, jobs, kill 명령어
+===========================================
+리눅스에는 수많은 명령어가 있는데 그중 top, ps, jobs, kill 총 4가지 명령어에 관하여 소개할 것이다.
 
+top란
+-----
+* 시스템의 상태를 전반적으로 가장 빠르게 파악할 수 있는 명령어다.(cpu, 메모리, 프로세스 등)
+* 실시간으로 현재 os의 상태를 출력해줌으로써 os에 문제가 있을 시 원인을 찾을 수 있는 명령어다.
 
-# Heading 1
-## Heading 2
-### Heading 3
-###### Heading 6
+tops을 입력하면 아래와 비슷한 화면이 출력된다. 
+ ![다운로드](https://github.com/seunghyun0931/helloworld_230517/assets/133843257/5effcc5f-660f-4791-a420-db80ea46b48c)
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+__첫 번째 줄은__
+* 시스템의 현재시간
+* 서버 구동시간
+* 현재 접속 유저수
+* 로드 에버리지(1분, 5분, 15분 동안의 시스템 부하량 평균값)을 의미한다.
 
-+ Option 1
-+ Option 2
-+ Option 3
+__두 번째 줄은__
+* 전체프로세서들 수 (total)
+* 실행중 수(running)
+* 대기중 수(sleeping)
+* 종료 수(stopped)
+* 좀비 수 (zombie)를 의미한다.
 
-Number 1
-Number 2
-Number 3
+__세 번째 줄은 cpu사용량을 나타내는데__
+* us는 프로세스의 유저 영역에서의 cpu 사용률 
+* sy는 프로세스의 커널 영역에서의 CPU 사용률
+* ni는 프로세스의 우선순위(priority) 설정에 사용하는 CPU 사용률
+* id는 사용하고 있지 않는 비율
+* wa는 IO가 완료될때까지 기다리고 있는 CPU 비율
+* hi는 하드웨어 인터럽트에 사용되는 CPU 사용률
+* si는 소프트웨어 인터럽트에 사용되는 CPU 사용률
+* st는 CPU를 VM에서 사용하여 대기하는 CPU 비율
 
-`printf("Hello World!");`
+__다음 줄은 RAM의 메모리 영역, 그 다음 줄은 디스크를 메모리처럼 이용하는 SWAP 메모리 영역이다.__
+* total은 총 메모리 양
+* free는 사용가능 메모리 양
+* used는 사용중인 메모리 양
+* buff/cache는 커널 버퍼 사용 메모리 양
+* avail Mem은 물리적 메모리 양을 의미함
 
-```c
-#include <stdio.h>
+ps란
+----
+* process status의 줄임말이며, 현재 실행중인 프로세스 목록과 상태를 출력하여 보여주는 기능 (윈도우의 작업관리자와 유사)
+__ps 사용법(-가 붙고 안 붙고 옵션이 달라짐)__
+* a : ps가 모든 프로세스를 터미널과 함께 나열하거나, x옵션과 함께 사용할 경우 모든 프로세스 나열
+* -a : 세선 리더, 터미널과 연관된 프로세서를 제외하고 모든 프로세서를 보여줌
+* -A, -e : 모든 프로세서를 보여줌
+* r : 현재 실행중인 프로세스만 선택해서 보여줌
+* x : ps가 사용자가 소유한 모든 프로세스를 나열하거나 옵션과 함께 사용할 경우 모든 프로세스를 나열
+* -p : 프로세스 ID를 특정해서 확인할 수 있음
+* u : 유저 중심 형식으로 보여줌
+* f : Fully 포맷 형태를 보여줌
+* -o : 유저가 정의한 포맷팅으로 보여줌
+* m, -m : 프로세스 다음에 스레드 정보도 보여줌
 
-int main(void){
-  return 0;
-  }
-```
+ps가 보여주는 칼럼들의 의미
+----------------------
+* user : 프로세스를 소유한 사용자
+* PID : 프로세스 아이디
+* %cpu : cpu 사용률
+* $MEM : 메모리 사용률
+* VSZ : 가상 메모리 사용량
+* RSS : 실제 메모리 사용량
+* TTY : 프로세스를 컨트롤 하는 터미널
+* STAT : 현재 프로세스의 상태
+* START : 프로세스 시작날
+* TIME : 프로세스가 지금까지 사용한 CPU시간
+* COMMAND : 프로세스 실행할 때 사용된 CMD
 
-```bash
-echo "Hello World!" > main.c
-```
-> hello world
+아래 사진은 ps-ef를 입력했을 때 나오는 사진이다
+![PS-EF](https://github.com/seunghyun0931/helloworld_230517/assets/133843257/1cc56770-2bf5-492a-ba46-a6561c7eddcb)
 
-*hello world
+아래 사진은 ps auxf를 입력했을 때 나오는 사진이다
+![ps auxf](https://github.com/seunghyun0931/helloworld_230517/assets/133843257/1b497baf-dfca-4fa1-adac-aabf5aa8fca0)
 
-**hello
-
-***hello
